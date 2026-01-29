@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy 2nd Monthsary! 💝</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #ffd6e7, #ffeff7, #fff0f5);
+            min-height: 100vh;
+            color: #5a3d5c;
+            overflow-x: hidden;
+            padding: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 500px;
+            background-color: rgba(255, 255, 255, 0.98);
+            border-radius: 25px;
+            box-shadow: 0 10px 30px rgba(231, 84, 128, 0.15);
+            overflow: hidden;
+            position: relative;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            padding: 25px 15px 20px;
+            position: relative;
+            border-radius: 20px;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.8rem;
+            color: #e75480;
+            margin-bottom: 10px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: #9d6b86;
+            font-weight: 500;
+            margin-top: 5px;
+        }
+
+        .two-months-badge {
+            display: inline-block;
+            background: linear-gradient(45deg, #ff7ba3, #ff4d8d);
+            color: white;
+            width: 50px;
+            height: 50px;
+            line-height: 50px;
+            border-radius: 50%;
+            font-weight: 700;
+            font-size: 1.5rem;
+            margin: 10px auto;
+            box-shadow: 0 4px 12px rgba(255, 77, 141, 0.4);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.08); }
+            100% { transform: scale(1); }
+        }
+
+        .gift-section {
+            text-align: center;
+            padding: 30px 20px;
+            border-radius: 20px;
+            margin: 20px 0;
+        }
+
+        .gift-icon {
+            font-size: 4.5rem;
+            color: #ff4d8d;
+            margin-bottom: 20px;
+            display: inline-block;
+            cursor: pointer;
+            transition: transform 0.5s;
+        }
+
+        .gift-icon:hover {
+            transform: scale(1.1) rotate(10deg);
+        }
+
+        .gift-text {
+            font-size: 1.3rem;
+            color: #d63384;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .tap-instruction {
+            font-size: 1rem;
+            color: #9d6b86;
+            margin-top: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .tap-instruction i {
+            color: #ff4d8d;
+            animation: bounce 1.5s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+
+        .hidden-message {
+            background: linear-gradient(135deg, #fff9fc, #fff5f9);
+            border-radius: 20px;
+            padding: 30px;
+            margin-top: 25px;
+            display: none;
+            text-align: center;
+            animation: fadeIn 1s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .hidden-message h2 {
+            color: #ff4d8d;
+            margin-bottom: 20px;
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.5rem;
+        }
+
+        .hidden-message p {
+            font-size: 1.15rem;
+            line-height: 1.7;
+            color: #7a4a6b;
+            margin-bottom: 15px;
+            text-align: left;
+        }
+
+        .photos-section {
+            margin: 30px 0;
+        }
+
+        .photos-title {
+            text-align: center;
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.2rem;
+            color: #e75480;
+            margin-bottom: 20px;
+        }
+
+        /* PHOTO GRID STYLES */
+        .photo-grid {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin-top: 10px;
+        }
+
+        .photo-frame {
+            width: 100%;
+            max-width: 110px;
+            height: 110px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(255, 155, 192, 0.2);
+            transition: transform 0.4s;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .photo-frame:hover {
+            transform: translateY(-5px) scale(1.05);
+        }
+
+        /* PHOTO STYLES */
+        .photo-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Placeholder styles (if no image loaded) */
+        .photo-placeholder {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, #fff5f9, #ffe6f0);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: #ff7ba3;
+        }
+
+        .photo-placeholder i {
+            font-size: 2rem;
+            margin-bottom: 5px;
+        }
+
+        .signature {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.5rem;
+            color: #e75480;
+            text-align: center;
+            margin: 30px 0;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+        }
+
+        .hearts-divider {
+            text-align: center;
+            font-size: 1.8rem;
+            letter-spacing: 10px;
+            color: #ff4d8d;
+            margin: 25px 0;
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px 15px;
+            color: #9d6b86;
+            font-size: 0.95rem;
+            border-top: 1px solid #ffe6f0;
+            margin-top: 20px;
+        }
+
+        .footer-hearts {
+            font-size: 1.5rem;
+            letter-spacing: 8px;
+            color: #e75480;
+            margin: 15px 0;
+        }
+
+        /* Floating hearts in background */
+        .floating-heart {
+            position: fixed;
+            font-size: 20px;
+            color: rgba(255, 105, 180, 0.25);
+            z-index: -1;
+            animation: float 8s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-30px) rotate(15deg); }
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 450px) {
+            h1 {
+                font-size: 2.3rem;
+            }
+            
+            .subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .hidden-message h2 {
+                font-size: 2rem;
+            }
+            
+            .photos-title {
+                font-size: 1.9rem;
+            }
+            
+            .photo-grid {
+                gap: 8px;
+            }
+            
+            .photo-frame {
+                height: 100px;
+                max-width: 100px;
+            }
+        }
+
+        @media (max-width: 380px) {
+            .photo-grid {
+                gap: 6px;
+            }
+            
+            .photo-frame {
+                max-width: 95px;
+                height: 95px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Floating hearts background -->
+    <div class="floating-heart" style="top: 5%; left: 5%; animation-delay: 0s;">❤</div>
+    <div class="floating-heart" style="top: 15%; right: 8%; animation-delay: 1s;">💖</div>
+    <div class="floating-heart" style="bottom: 20%; left: 10%; animation-delay: 2s;">💕</div>
+    <div class="floating-heart" style="bottom: 15%; right: 7%; animation-delay: 3s;">💝</div>
+    
+    <div class="container">
+        <div class="header">
+            <h1>Happy 2nd Monthsary, My Love!</h1>
+            <div class="two-months-badge">2</div>
+            <div class="subtitle">Two months of creating stronger relationship with you</div>
+        </div>
+        
+        <div class="gift-section">
+            <div class="gift-text">Open mo Lovey hehe</div>
+            <div class="gift-icon" id="gift-icon">🎁</div>
+            <div class="tap-instruction">
+                <i class="fas fa-hand-point-up"></i>
+                <span>Tap me to open a surprise</span>
+            </div>
+            
+            <div class="hidden-message" id="hidden-message">
+                <h2>To My Love,</h2>
+                <p>Happy 2nd monthsary, love koo! These past two months with you was a roller coaster. We've encountered many happy and painful days pero it will be always just us being contented.</p>
+                <p>I cherish our late-night conversations, your comforting hugs, and the way you made me feel safe like "home".</p>
+                <p>It may be very struggling for us ngayon pero I'm so excited for all the beautiful memories we'll create together in the months and years to come. I hope magkasama na tayo soon. Yung 'di na ikaw matutulog sa labas ha, ay nako talaga lang.</p>
+                <p>Thank you for being there, for loving me, and for making these past two months a unforgettable memory. May our love continue to grow stronger with each passing day. Mahal na mahal kita, loveyy! </p>
+                <div class="hearts-divider" style="font-size: 1.5rem; margin: 20px 0;">❤️ 💖 💕</div>
+                <p style="text-align: center; font-family: 'Dancing Script', cursive; font-size: 2rem; color: #ff4d8d;">Mwamwa</p>
+            </div>
+        </div>
+        
+        <div class="photos-section">
+            <div class="photos-title">Our Beautiful Memories</div>
+            
+            <!-- PHOTO GRID WITH YOUR PHOTOS -->
+            <div class="photo-grid">
+                <!-- PHOTO 1 - Using URL encoding for space in folder name -->
+                <div class="photo-frame">
+                    <img src="ourmemo/lovey1.jpg" alt="Our beautiful memory 1" id="photo1">
+                </div>
+                
+                <!-- PHOTO 2 -->
+                <div class="photo-frame">
+                    <img src="ourmemo/lovey2.jpg" alt="Our beautiful memory 2" id="photo2">
+                </div>
+                
+                <!-- PHOTO 3 -->
+                <div class="photo-frame">
+                    <img src="ourmemo/lovey3.jpg" alt="Our future together" id="photo3">
+                </div>
+            </div>
+        </div>
+
+        <div class="signature">And more to come</div>
+
+        <footer>
+            <p>Made with <i class="fas fa-heart" style="color:#ff4d8d;"></i> for the most amazing boyfriend</p>
+            <p>Happy 2nd Monthsary, my love!</p>
+            <div class="footer-hearts">💖 💝 💕 💓 💗</div>
+        </footer>
+    </div>
+
+    <script>
+        // Gift icon click event
+        document.getElementById('gift-icon').addEventListener('click', function() {
+            const hiddenMessage = document.getElementById('hidden-message');
+            const giftIcon = document.getElementById('gift-icon');
+            
+            if (hiddenMessage.style.display === 'none' || hiddenMessage.style.display === '') {
+                // Show the hidden message
+                hiddenMessage.style.display = 'block';
+                giftIcon.textContent = '💝';
+                giftIcon.style.transform = 'scale(1.2) rotate(-10deg)';
+                
+                // Scroll to the message
+                hiddenMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                
+                // Create celebration effect
+                createHeartsEffect();
+            } else {
+                // Hide the message
+                hiddenMessage.style.display = 'none';
+                giftIcon.textContent = '🎁';
+                giftIcon.style.transform = 'scale(1)';
+            }
+        });
+        
+        // Function to create floating hearts effect
+        function createHeartsEffect() {
+            for (let i = 0; i < 12; i++) {
+                setTimeout(() => {
+                    createFloatingHeart();
+                }, i * 150);
+            }
+        }
+        
+        function createFloatingHeart() {
+            const heart = document.createElement('div');
+            heart.innerHTML = '💖';
+            heart.style.position = 'fixed';
+            heart.style.color = '#ff4d8d';
+            heart.style.fontSize = Math.random() * 25 + 20 + 'px';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.top = '100vh';
+            heart.style.opacity = '0.9';
+            heart.style.zIndex = '1000';
+            heart.style.pointerEvents = 'none';
+            document.body.appendChild(heart);
+            
+            const animation = heart.animate([
+                { transform: 'translateY(0) rotate(0deg)', opacity: 1 },
+                { transform: `translateY(-${window.innerHeight + 100}px) rotate(${Math.random() * 360}deg)`, opacity: 0 }
+            ], {
+                duration: Math.random() * 2000 + 3000,
+                easing: 'cubic-bezier(0.215, 0.61, 0.355, 1)'
+            });
+            
+            animation.onfinish = () => {
+                heart.remove();
+            };
+        }
+        
+        // Add initial floating hearts
+        for (let i = 0; i < 6; i++) {
+            setTimeout(() => {
+                createFloatingHeart();
+            }, i * 800);
+        }
+        
+        // Make the gift icon bounce occasionally
+        setInterval(() => {
+            const giftIcon = document.getElementById('gift-icon');
+            giftIcon.style.animation = 'pulse 0.8s';
+            setTimeout(() => {
+                giftIcon.style.animation = '';
+            }, 800);
+        }, 8000);
+        
+        // Debug: Check if photos load properly
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Page loaded. Checking photos...');
+            
+            const photos = [
+                { id: 'photo1', path: 'ourmemo/lovey1.jpg' },
+                { id: 'photo2', path: 'ourmemo/lovey2.jpg' },
+                { id: 'photo3', path: 'ourmemo/lovey3.jpg' }
+            ];
+            
+            photos.forEach(photo => {
+                const img = document.getElementById(photo.id);
+                if (img) {
+                    // Test if image exists
+                    const testImg = new Image();
+                    testImg.onload = function() {
+                        console.log(`✓ Photo loaded: ${photo.path}`);
+                        img.style.display = 'block';
+                    };
+                    testImg.onerror = function() {
+                        console.log(`✗ Photo failed to load: ${photo.path}`);
+                        console.log('Trying alternative paths...');
+                        
+                        // Try alternative paths
+                        const alternatives = [
+                            `our memo/${photo.path.split('/')[1]}`,
+                            `./our memo/${photo.path.split('/')[1]}`,
+                            `"our memo"/${photo.path.split('/')[1]}`,
+                            `${photo.path.split('/')[1]}` // Try without folder
+                        ];
+                        
+                        // Try each alternative
+                        let currentIndex = 0;
+                        function tryNextAlternative() {
+                            if (currentIndex < alternatives.length) {
+                                const altPath = alternatives[currentIndex];
+                                console.log(`Trying: ${altPath}`);
+                                const testAlt = new Image();
+                                testAlt.onload = function() {
+                                    console.log(`✓ Found photo at: ${altPath}`);
+                                    img.src = altPath;
+                                };
+                                testAlt.onerror = function() {
+                                    currentIndex++;
+                                    tryNextAlternative();
+                                };
+                                testAlt.src = altPath;
+                            } else {
+                                console.log(`All paths failed for ${photo.path.split('/')[1]}`);
+                                // Show placeholder
+                                const frame = img.parentElement;
+                                const iconClass = photo.id === 'photo1' ? 'fas fa-camera' : 
+                                                photo.id === 'photo2' ? 'fas fa-heart' : 'fas fa-star';
+                                frame.innerHTML = `<div class="photo-placeholder"><i class="${iconClass}"></i></div>`;
+                            }
+                        }
+                        
+                        tryNextAlternative();
+                    };
+                    testImg.src = photo.path;
+                }
+            });
+        });
+    </script>
+</body>
+</html>
